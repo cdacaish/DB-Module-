@@ -1,0 +1,11 @@
+Assignment –3 Overview of SQL.
+__________________________________________________________________________
+1) Does ANSI recognize the data type DATE?
+
+Answer : Yes and by default the format followed is YYYY-MM-DD.
+__________________________________________________________________________
+2) Which subdivision of SQL is used to insert values in tables?
+
+Answer : Data Manipulation Language.
+__________________________________________________________________________
+
