@@ -1,0 +1,129 @@
+SQL Exercise 1 
+___________________________________________________________________________
+1) 
+
+create database exercise1;
+
+use exercise1;
+___________________________________________________________________________
+create table SEMP
+(
+EMPNO CHAR(4),
+EMPNAME CHAR(20),
+BASIC FLOAT(9,2),
+DEPTNO CHAR(2),
+DEPTHEAD CHAR(4)
+);
+
+___________________________________________________________________________
+2)
+
+create table SDEPT
+(
+DEPTNO CHAR(2),
+DEPTNAME CHAR(15)
+);
+
+___________________________________________________________________________
+3)
+Insert into the SDEPT table the following values:-
+10, Development
+20, Training 
+
+insert into SDEPT (DEPTNO,DEPTNAME)
+values('10','DEVELOPMENT');
+
+insert into SDEPT (DEPTNO,DEPTNAME)
+values('20','TRAINING');
+
+___________________________________________________________________________
+4) Insert into the SEMP table the following values:-
+
+0001, SUNIL, 6000, 10
+0002, HIREN, 8000, 20
+0003, ALI, 4000, 10, 0001
+0004, GEORGE, 6000, 0002 
+
+
+insert into SEMP (EMPNO,EMPNAME,BASIC,DEPTNO)
+values('0001','SUNIL',6000,'10');
+
+insert into SEMP (EMPNO,EMPNAME,BASIC,DEPTNO)
+values('0002','HIREN',8000,'20');
+
+insert into SEMP (EMPNO,EMPNAME,BASIC,DEPTNO,DEPTHEAD)
+values('0003','ALI',4000,'10','0001');
+
+insert into SEMP (EMPNO,EMPNAME,BASIC,DEPTHEAD)
+values('0004','GEORGE',6000,'0002');
+
+____________________________________________________________________________
+CREATE TABLE S
+(
+`S#` 	CHAR(2),
+Sname 	VARCHAR(20),
+Status	INT(4),
+City	VARCHAR(20)
+);
+
+insert into S values('S1','aishwarya','10','London');
+insert into S values('S2','deepika','20','Paris');
+insert into S values('S3','sayli','30','Athens');
+
+CREATE TABLE P
+(
+`P#` 	CHAR(2),
+Pname 	VARCHAR(20),
+Color	INT(4),
+Weight	INT(4),
+City	VARCHAR(20)
+);
+
+insert into P values('P1','abc','Black','5','London');
+insert into P values('P2','def','Blue','13','Athens');
+insert into P values('P3','ghi','White','12','Paris');
+
+
+CREATE TABLE J
+(
+`J#` 	CHAR(2),
+Jname 	VARCHAR(20),
+City	VARCHAR(20)
+);
+
+insert into projects values('J1','Mfg_mgmt','Athens');
+insert into projects values('J2','Lib_mgmt','London');
+insert into projects values('J3','Canteen_mgmt','Paris');
+
+
+CREATE TABLE SPJ
+(
+`S#`	CHAR(2),
+`P#` 	CHAR(2),
+`J#` 	CHAR(2),
+QTY	INT(5)
+);
+
+_______________________________________________________________________________________________
+5) SELECT * FROM S;
+_______________________________________________________________________________________________
+6) SELECT `S#`,SNAME FROM S;
+_______________________________________________________________________________________________
+7) SELECT PNAME,COLOR FROM P WHERE CITY='LONDON' ;
+_______________________________________________________________________________________________
+8) SELECT * FROM S WHERE CITY='LONDON';
+_______________________________________________________________________________________________
+9) SELECT * FROM S WHERE CITY='PARIS' || CITY='ATHENS';
+_______________________________________________________________________________________________
+10) SELECT * FROM P WHERE CITY='ATHENS'
+_______________________________________________________________________________________________
+11) SELECT PNAME FROM P WHERE WEIGHT BETWEEN 12 AND 14;
+_______________________________________________________________________________________________
+12) SELECT * FROM S WHERE STATUS>=20;
+_______________________________________________________________________________________________
+13)SELECT * FROM S WHERE CITY != 'LONDON';
+_______________________________________________________________________________________________
+14)SELECT CITY FROM S;
+_______________________________________________________________________________________________
+15)SELECT WEIGHT AS `WEIGHT IN GRAMS`,WEIGHT*1000 AS `WEIGHT IN MILLIGRAMS`, WEIGHT/1000 AS `WEIGHT IN KILLOGRAMS` FROM P;
+___________________________________________________________________________________________________
