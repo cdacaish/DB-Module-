@@ -1,0 +1,94 @@
+SQL EXERCISE NO.  4
+_______________________________________________________________________________
+1) DISPLAY THE MINIMUM STATUS IN THE SUPPLIER TABLE.
+
+ANSWER :
+	
+SELECT MIN(STATUS) FROM S;
+	
+_________________________________________________________________________________	
+2) DISPLAY THE MAXIMUM WEIGHT IN THE PARTS TABLE.
+
+ANSWER :
+	
+SELECT MAX(WEIGHT) FROM P;
+	
+____________________________________________________________________________________	
+3) DISPLAY THE AVERAGE WEIGHT OF THE PARTS.
+
+ANSWER :
+	
+SELECT AVG(WEIGHT) FROM P;
+
+____________________________________________________________________________________	
+	
+4) DISPLAY THE TOTAL QUANTITY SOLD FOR PART ‘P1’.
+
+ANSWER :
+
+SELECT SUM(QTY) FROM SPJ WHERE `P#` = 'P1';
+	
+____________________________________________________________________________________	
+5) DISPLAY THE TOTAL QUANTITY SOLD FOR EACH PART.
+
+ANSWER :
+	
+SELECT SUM(QTY) FROM SPJ GROUP BY `P#`;
+	
+_____________________________________________________________________________________	
+6)DISPLAY THE AVERAGE QUANTITY SOLD FOR EACH PART.
+
+ANSWER :
+
+SELECT AVG(QTY) FROM SPJ GROUP BY `P#`;
+	
+______________________________________________________________________________________	
+7)DISPLAY THE MAXIMUM QUANTITY SOLD FOR EACH PART, PROVIDED THE MAXIMUM QUANTITY
+IS GREATER THAN 800.
+
+ANSWER :
+
+SELECT MAX(QTY) FROM SPJ WHERE QTY > 800 GROUP BY `P#`;
+	
+_________________________________________________________________________________________	
+8)DISPLAY THE STATUS AND THE COUNT OF SUPPLIERS WITH THAT STATUS.
+
+ANSWER :
+
+SELECT STATUS , COUNT(SNAME) FROM S GROUP BY STATUS;
+	
+_________________________________________________________________________________________	
+9)DISPLAY THE COUNT OF PROJECTS GOING ON IN DIFFERENT CITIES.
+
+ANSWER :
+
+SELECT COUNT(JNAME) FROM J GROUP BY CITY ;
+	
+__________________________________________________________________________________________	
+10) WHAT IS THE DIFFERENCE BETWEEN COUNT(STATUS) AND COUNT(*) ?
+	
+ANSWER :
+
+COUNT(STATUS) CCONTAINS ALL VALUES EXCEPT NULL. 
+COUNT(*) CONTAINS ALL VALUES INCLUDEING NULL.
+	
+___________________________________________________________________________________________
+	
+11) DISPLAY THE STATUS AND THE COUNT OF SUPPLIERS WITH THAT STATUS IN THE FOLLOWING FORMAT
+AS SHOWN BELOW:-
+	
+STATUS COUNT
+TEN 1
+TWENTY 2
+THIRTY 3 
+
+ANSWER :
+
+SELECT CASE
+WHEN STATUS = 10 THEN 'TEN'
+WHEN STATUS = 20 THEN 'TWENTY'
+WHEN STATUS = 30 THEN 'THIRTY'
+END STATUS , COUNT(SNAME) FROM S GROUP BY STATUS;
+______________________________________________________________________________________________
+	
+
