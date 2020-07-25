@@ -1,0 +1,72 @@
+SQL Exercise NO. 5
+_______________________________________________________________________________________
+1)
+
+select supplier.Sname , SUPPLIER_PARTS_PROJECT.Qty 
+from SUPPLIER , SUPPLIER_PARTS_PROJECT
+where  SUPPLIER.`S#`   = SUPPLIER_PARTS_PROJECT.`S#`;
+_______________________________________________________________________________________
+2)
+
+select parts.Pname , SUPPLIER_PARTS_PROJECT.Qty 
+from parts , SUPPLIER_PARTS_PROJECT
+where  parts.`P#`   = SUPPLIER_PARTS_PROJECT.`P#`;
+_______________________________________________________________________________________
+3)
+
+select distinct projects.Jname , SUPPLIER_PARTS_PROJECT.Qty 
+from projects , SUPPLIER_PARTS_PROJECT
+where  projects.`J#`   = SUPPLIER_PARTS_PROJECT.`J#`;
+
+_______________________________________________________________________________________
+4)
+
+select SUPPLIER.Sname , parts.Pname , projects.Jname , SUPPLIER_PARTS_PROJECT.Qty
+from SUPPLIER,PARTS,projects,SUPPLIER_PARTS_PROJECT
+where SUPPLIER.`S#` = SUPPLIER_PARTS_PROJECT.`S#`and
+	  parts.`P#` = SUPPLIER_PARTS_PROJECT.`P#`and 
+      projects.`J#` = SUPPLIER_PARTS_PROJECT.`J#`;
+_______________________________________________________________________________________
+5) 
+select SUPPLIER.Sname , parts.City
+from SUPPLIER,PARTS,projects,SUPPLIER_PARTS_PROJECT
+where SUPPLIER.`S#` = SUPPLIER_PARTS_PROJECT.`S#`and
+	  parts.`P#` = SUPPLIER_PARTS_PROJECT.`P#`and 
+      projects.`J#` = SUPPLIER_PARTS_PROJECT.`J#` and 
+       parts.City = projects.City;
+_______________________________________________________________________________________
+6)
+select parts.Pname , SUPPLIER_PARTS_PROJECT.Qty 
+from parts , SUPPLIER_PARTS_PROJECT
+ where parts.Color = 'Red' and   parts.`P#` = SUPPLIER_PARTS_PROJECT.`P#`;
+_______________________________________________________________________________________
+7) 
+select SUPPLIER.Sname  , SUPPLIER_PARTS_PROJECT.Qty
+from SUPPLIER ,SUPPLIER_PARTS_PROJECT
+where SUPPLIER.`S#` = SUPPLIER_PARTS_PROJECT.`S#`and
+	  supplier.Status = 20 ;
+_______________________________________________________________________________________
+8) 
+select parts.Pname  , SUPPLIER_PARTS_PROJECT.Qty
+from PARTS,SUPPLIER_PARTS_PROJECT
+where parts.`P#` = SUPPLIER_PARTS_PROJECT.`P#`and 
+      parts.Weight >14;
+_______________________________________________________________________________________
+9) 
+select projects.Jname , projects.city
+from projects,SUPPLIER_PARTS_PROJECT
+where projects.`J#` = SUPPLIER_PARTS_PROJECT.`J#` and 
+	  supplier_parts_project.Qty > 500;
+_______________________________________________________________________________________      
+10) 
+select  parts.Pname , SUPPLIER_PARTS_PROJECT.Qty
+from PARTS,SUPPLIER_PARTS_PROJECT
+where parts.`P#` = SUPPLIER_PARTS_PROJECT.`P#`and 
+     PARTS.weight < 15;
+_______________________________________________________________________________________     
+11) 
+select  b.ename as employee ,a.ename as manager
+from emp a , emp b 
+where b.mgr = a.empno ;
+
+_______________________________________________________________________________________
