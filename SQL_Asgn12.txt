@@ -1,0 +1,41 @@
+ /*  ASSIGNMENT NO : 12 USING THE OPERATORS IN, ANY, AND ALL.*/
+
+____________________________________________________________________________________________________________ 
+
+
+1) WRITE A QUERY THAT SELECTS ALL CUSTOMERS WHOSE RATINGS ARE EQUAL TO OR GREATER THAN ANY OF SERRES’.
+
+ANSWER :
+	
+SELECT * FROM CUSTOMERS WHERE RATING >=ANY(SELECT RATING FROM CUSTOMERS WHERE SNUM=
+(SELECT SNUM FROM SALESPEOPLE WHERE SNAME='SERRES'));
+
+_____________________________________________________________________________________________________________
+2) WRITE A QUERY USING ANY OR ALL THAT WILL FIND ALL SALESPEOPLE WHO HAVE NO CUSTOMERS LOCATED IN THEIR CITY.
+	
+ANSWER :	
+
+SELECT SNAME,CITY FROM  SALESPEOPLE 
+WHERE CITY !=ALL (SELECT CITY FROM CUSTOMERS);
+	
+	
+_____________________________________________________________________________________________________________
+3) WRITE A QUERY THAT SELECTS ALL ORDERS FOR AMOUNTS GREATER THAN ANY FOR THE CUSTOMERS IN LONDON.
+	
+ANSWER :
+
+   
+SELECT * FROM ORDERS WHERE AMT > ANY(SELECT AMT FROM ORDERS,CUSTOMERS 
+WHERE ORDERS.SNUM = CUSTOMERS.SNUM HAVING CITY='LONDON');
+
+______________________________________________________________________________________________________________
+4) WRITE THE ABOVE QUERY USING MIN OR MAX.
+
+ANSWER :
+	  
+SELECT * FROM ORDERS WHERE AMT> (SELECT MIN(AMT) FROM ORDERS WHERE CNUM = 
+ANY (SELECT CNUM FROM CUSTOMERS WHERE CITY = 'LONDON'));
+
+______________________________________________________________________________________________________________
+	
+
