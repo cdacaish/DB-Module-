@@ -1,0 +1,34 @@
+
+/* ASSIGNMENT NO. 16. CREATING TABLES AND INDEXES */
+________________________________________________________________________________________________________________
+
+1)WRITE A COMMAND THAT WILL ENABLE A USER TO PULL ORDERS GROUPED BY DATE OUT OF THE ORDERS TABLE QUICKLY.
+
+ANSWER :
+	
+CREATE INDEX I_DATE ON ORDERS(ODATE);
+
+_________________________________________________________________________________________________________________
+2) IF THE ORDERS TABLE HAS ALREADY BEEN CREATED, 
+HOW CAN YOU FORCE THE ONUM FIELD TO BE UNIQUE (ASSUME ALL CURRENT VALUES ARE UNIQUE)?
+
+ANSWER :
+	
+CREATE UNIQUE INDEX I_ONUM ON ORDERS(ONUM);
+
+__________________________________________________________________________________________________________________
+3) CREATE AN INDEX THAT WOULD PERMIT EACH SALESPERSON TO RETRIEVE HIS OR HER ORDERS GROUPED BY DATE QUICKLY.
+
+ANSWER :
+	
+CREATE INDEX I_DATE ON ORDERS(ODATE);
+
+__________________________________________________________________________________________________________________
+4) LET US ASSUME THAT EACH SALESPERSON IS TO HAVE ONLY ONE CUSTOMER OF A GIVEN RATING, AND THAT THIS IS CURRENTLY
+THE CASE. ENTER A COMMAND THAT ENFORCES IT.
+	
+ANSWER :
+	
+CREATE UNIQUE INDEX I_RATING ON CUSTOMERS(RATING);
+___________________________________________________________________________________________________________________
+
