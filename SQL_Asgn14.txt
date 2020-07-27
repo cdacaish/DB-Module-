@@ -1,0 +1,33 @@
+/* ASSIGNMENT NO.14 ENTERING,DELETING AND CHANGING THE FIELD VALUES */
+
+____________________________________________________________________________________
+1)WRITE A COMMAND THAT PUTS THE FOLLOWING VALUES, IN THEIR GIVEN ORDER, INTO THE
+SALESPEOPLE TABLE: CITY – SAN JOSE, NAME – BLANCO, COMM – NULL, CNUM – 1100.
+
+
+ANSWER :
+
+INSERT INTO SALESPEOPLE(CITY,SNAME,COMM,SNUM)VALUES('SAN JOSE', 'BLANCO',NULL,1100);
+
+____________________________________________________________________________________
+2) WRITE A COMMAND THAT REMOVES ALL ORDERS FROM CUSTOMER CLEMENS FROM THE
+   ORDERS TABLE.
+
+ANSWER :
+
+DELETE FROM ORDERS WHERE CNUM =(SELECT CNUM FROM CUSTOMERS WHERE CNAME='CLEMENS');
+
+____________________________________________________________________________________
+3) WRITE A COMMAND THAT INCREASES THE RATING OF ALL CUSTOMERS IN ROME BY 100
+
+ANSWER :
+
+UPDATE CUSTOMERS SET RATING= RATING+100 WHERE CITY='ROME';
+_____________________________________________________________________________________
+4) SALESPERSON SERRES HAS LEFT THE COMPANY. ASSIGN HER CUSTOMERS TO MOTIKA.
+
+ANSWER :
+
+UPDATE CUSTOMERS SET SNUM =(SELECT SNUM FROM SALESPEOPLE WHERE SNAME='SERRES') WHERE 
+SNUM =(SELECT SNUM FROM SALESPEOPLE WHERE SNAME='MOTIKA');
+_____________________________________________________________________________________
