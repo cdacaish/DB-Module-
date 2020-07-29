@@ -1,0 +1,32 @@
+/* SQL ASSIGNMENT NO. 19 VIEWS */
+____________________________________________________________________________________________
+1) CREATE A VIEW THAT SHOWS ALL OF THE CUSTOMERS WHO HAVE THE HIGHEST RATINGS.
+
+ANSWER :
+
+CREATE VIEW V1 AS SELECT * FROM CUSTOMERS WHERE RATING = (SELECT MAX(RATING) FROM CUSTOMERS);
+____________________________________________________________________________________________
+
+2) CREATE A VIEW THAT SHOWS THE NUMBER OF SALESPEOPLE IN EACH CITY.
+
+ANSWER :	
+
+CREATE VIEW V2 AS SELECT COUNT(CITY) FROM SALESPEOPLE GROUP BY CITY;
+____________________________________________________________________________________________
+
+3) CREATE A VIEW THAT SHOWS THE AVERAGE AND TOTAL ORDERS FOR EACH SALESPERSON AFTER
+HIS OR HER NAME. ASSUME ALL NAMES ARE UNIQUE.
+
+ANSWER :
+
+CREATE VIEW V3 AS SELECT SNAME, AVG(ONUM), COUNT(ONUM) FROM SALESPEOPLE 
+JOIN ORDERS USING (SNUM) GROUP BY SNAME;
+
+____________________________________________________________________________________________
+4) CREATE A VIEW THAT SHOWS EACH SALESPERSON WITH MULTIPLE CUSTOMERS.
+
+ANSWER :
+
+CREATE VIEW V3 AS SELECT SNAME, AVG(ONUM), COUNT(ONUM) FROM SALESPEOPLE 
+JOIN ORDERS USING (SNUM) GROUP BY SNAME;
+____________________________________________________________________________________________
