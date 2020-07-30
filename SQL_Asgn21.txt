@@ -1,0 +1,40 @@
+/* ASSIGNMENT NO.21 GRANT AND REVOKE */
+___________________________________________________________________________________________
+1)GIVE AMIT THE RIGHT TO CHANGE THE RATINGS OF THE CUSTOMERS.
+
+ANSWER :
+
+CREATE VIEW V5 AS SELECT RATING FROM CUSTOMERS;
+GRANT UPDATE ON V5 TO AMIT;
+___________________________________________________________________________________________
+2)GIVE MANOJ THE RIGHT TO GIVE OTHER USERS THE RIGHT TO QUERY THE ORDERS TABLE.
+
+ANSWER :
+	
+GRANT ALL ON ORDERS TO PUBLIC;
+___________________________________________________________________________________________
+3)TAKE THE INSERT PRIVILEGE ON SALESPEOPLE AWAY FROM AJITA.
+
+ANSWER :
+	  
+REVOKE INSERT ON SALESPEOPLE TO SALESPEOPLE FROM AJITA;
+___________________________________________________________________________________________
+4)GRANT ABHIJEET THE RIGHT TO INSERT OR UPDATE THE CUSTOMERS TABLE WHILE 
+KEEPING HER POSSIBLE RATING VALUES IN THE RANGE OF 100 TO 500.
+
+ANSWER :
+	   
+CREATE VIEW V6 AS
+SELECT * FROM CUSTOMERS WHERE RATING BETWEEN 100 AND 500;
+GRANT INSERT,UPDATE ON V6 TO ABHIJEET;
+___________________________________________________________________________________________
+5)ALLOW VIKRAM TO QUERY THE CUSTOMERS TABLE, BUT RESTRICT HIS ACCESS TO THOSE
+CUSTOMERS WHOSE RATING IS THE LOWEST.
+
+ANSWER :
+	  
+CREATE VIEW V7 AS
+SELECT * FROM CUSTOMERS WHERE RATING >(SELECT MIN(RATING) FROM CUSTOMERS);
+GRANT ALL ON V7 TO VIKRAM;
+
+___________________________________________________________________________________________
